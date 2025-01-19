@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -34,6 +35,7 @@ public class ScoreManager : MonoBehaviour
         Debug.Log($"Score: {score}");
     }
 
+    public void resetScore() { score = 0; }
     public int GetScore() { return score; }
     public int GetHits() { return hit; }
     public int getTotal() { return total; }

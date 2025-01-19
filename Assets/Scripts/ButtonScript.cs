@@ -6,11 +6,13 @@ public class ButtonScript : MonoBehaviour
     public void home()
     {
         SceneManager.LoadScene("HomeScreen");
+        ScoreManager.Instance.resetScore();
     }
 
     public void play()
     {
         SceneManager.LoadScene("GamePlay");
+        ScoreManager.Instance.resetScore();
     }
 
     public void quitGame()

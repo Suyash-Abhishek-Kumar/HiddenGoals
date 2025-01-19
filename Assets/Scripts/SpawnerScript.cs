@@ -3,7 +3,7 @@ using UnityEngine;
 public class SpawnerScript : MonoBehaviour
 {
     public GameObject targetPrefab;
-    public float spawnInterval = 2f;
+    private float spawnInterval = 1.4f;
     public Transform spawnArea;
 
     private void Start()

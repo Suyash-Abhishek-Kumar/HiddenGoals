@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\SpawnerScript.cs" />
     <Compile Include="Assets\Scripts\TargetScript.cs" />
+    <Compile Include="Assets\Scripts\HintScript.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\ResultTextScript.cs" />
     <Compile Include="Assets\Scripts\ScoreDisplay.cs" />

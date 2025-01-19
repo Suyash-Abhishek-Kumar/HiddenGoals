@@ -3,8 +3,9 @@ using UnityEngine;
 public class TargetScript : MonoBehaviour
 {
     private SpriteRenderer sr;
-    Color[] predefinedColors = { Color.red, Color.green, Color.yellow };
-    private float shrinkSpeed = 0.05f;
+    Color[] predefinedColors = { Color.cyan, Color.red, Color.yellow };
+    private int color_index;
+    private float shrinkSpeed = 0.1f;
     private float minScale = 0.1f;
     void Start()
     {
@@ -23,7 +24,8 @@ public class TargetScript : MonoBehaviour
 
     void ChangeColor()
     {
-        Color selectedColor = predefinedColors[Random.Range(0, predefinedColors.Length)];
+        color_index = Random.Range(0, predefinedColors.Length);
+        Color selectedColor = predefinedColors[color_index];
         sr.color = selectedColor;
     }
 
@@ -35,6 +37,7 @@ public class TargetScript : MonoBehaviour
     void HitTarget()
     {
         Debug.Log("Hit!");
+        ScoreManager.Instance.color(color_index, true);
         ScoreManager.Instance.AddScore(10);
         Destroy(gameObject);
     }
@@ -42,6 +45,7 @@ public class TargetScript : MonoBehaviour
     void Despawn()
     {
         Debug.Log("Miss!");
+        ScoreManager.Instance.color(color_index, false);
         ScoreManager.Instance.MissPenalty(5);
         Destroy(gameObject);
     }

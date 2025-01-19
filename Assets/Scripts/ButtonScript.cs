@@ -7,11 +7,13 @@ public class ButtonScript : MonoBehaviour
     {
         SceneManager.LoadScene("HomeScreen");
         ScoreManager.Instance.resetScore();
+        ScoreManager.Instance.resetGoal();
     }
 
     public void play()
     {
         SceneManager.LoadScene("GamePlay");
+        if (ScoreManager.Instance.GetScore() == 100) { ScoreManager.Instance.resetGoal(); Debug.Log("new goal set"); }
         ScoreManager.Instance.resetScore();
     }
 
@@ -21,5 +23,10 @@ public class ButtonScript : MonoBehaviour
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
+    }
+
+    public void story()
+    {
+        SceneManager.LoadScene("Story");
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class HintScript : MonoBehaviour
 {
     public Text hintBox;
+    public Text goalBox;
     private string[][] hints = new string[][]
     {
         new string[] { "Watch your targets carefully before clicking.", "Fewer mistakes lead to a perfect score." },
@@ -16,7 +17,14 @@ public class HintScript : MonoBehaviour
     void Start()
     {
         if (ScoreManager.Instance.GetScore() != 100)
+        {
             hintBox.text = hints[ScoreManager.Instance.GetGoal()][Random.Range(0, 2)];
-        else hintBox.text = "Congratulations of finishing your training";
+            goalBox.text = "Goal: ???";
+        }
+        else
+        {
+            hintBox.text = "Congratulations of finishing your training";
+            goalBox.text = "Goal: " + ScoreManager.Instance.GetGoalName();
+        }
     }
 }

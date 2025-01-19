@@ -3,6 +3,7 @@ using UnityEngine;
 public class TargetScript : MonoBehaviour
 {
     private SpriteRenderer sr;
+    private AudioSource aus;
     Color[] predefinedColors = { Color.cyan, Color.red, Color.yellow };
     private int color_index;
     private float shrinkSpeed = 0.1f;
@@ -10,6 +11,7 @@ public class TargetScript : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        aus = GetComponent<AudioSource>();
         ChangeColor();
     }
 
@@ -31,7 +33,8 @@ public class TargetScript : MonoBehaviour
 
     void OnMouseDown()
     {
-        HitTarget();
+        aus.Play();
+        Invoke("HitTarget", 0.2f);
     }
 
     void HitTarget()

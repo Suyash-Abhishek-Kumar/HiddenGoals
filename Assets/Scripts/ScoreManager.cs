@@ -63,6 +63,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
     public int GetGoal() { return current_goal; }
+    public string GetGoalName() { return goals[current_goal]; }
     public int GetScore() { return score; }
     public int GetHits() { return hit; }
     public int getTotal() { return total; }
